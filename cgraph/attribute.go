@@ -724,6 +724,11 @@ func (g *Graph) SetFontColor(v string) *Graph {
 	return g
 }
 
+func (g *Graph) SetFontName(v string) *Graph {
+	g.SafeSet(string(fontNameAttr), v, "Microsoft YaHei")
+	return g
+}
+
 // SetFontColor
 // Color used for text.
 // https://graphviz.gitlab.io/_pages/doc/info/attrs.html#a:fontcolor
@@ -732,11 +737,21 @@ func (n *Node) SetFontColor(v string) *Node {
 	return n
 }
 
+func (n *Node) SetFontName(v string) *Node {
+	n.SafeSet(string(fontNameAttr), v, "Microsoft YaHei")
+	return n
+}
+
 // SetFontColor
 // Color used for text.
 // https://graphviz.gitlab.io/_pages/doc/info/attrs.html#a:fontcolor
 func (e *Edge) SetFontColor(v string) *Edge {
 	e.SafeSet(string(fontColorAttr), v, "black")
+	return e
+}
+
+func (e *Edge) SetFontName(v string) *Edge {
+	e.SafeSet(string(fontNameAttr), v, "Microsoft YaHei")
 	return e
 }
 
